@@ -1,0 +1,37 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+{% block content %}
+
+    <h2>Регистрация</h2>
+
+    <hr color="black">
+    <br>
+
+    <form action="{% url 'register' %}" method="post">
+        {{ form.username.label }}
+        {{ form.username }}
+    <br>
+    <br>
+        {{ form.email.label }}
+        {{ form.email }}
+    <br>
+    <br>
+        {{ form.password1.label }}
+        {{ form.password1 }}
+    <br>
+    <br>
+        {{ form.password2.label }}
+        {{ form.password2 }}
+    <br>
+    <br>
+    <hr color="black">
+    <br>
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-success">submit</button>
+    </form>
+{% endblock %}

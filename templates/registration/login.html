@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+{% block content %}
+    <h2>Аутентификация</h2>
+    <hr color="black">
+
+    {% if form.errors %}
+        <p>{{ form.errors.error }}</p>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {{ form.username.label }}
+        {{ form.username }}
+    <br>
+    <br>
+        {{ form.password.label }}
+        {{ form.password }}
+    <hr color="black">
+    <br>
+
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success"> submit </button>
+    </form>
+
+    <a href="{% url 'password_reset' %}">Забыл пароль?</a>
+
+{% endblock %}

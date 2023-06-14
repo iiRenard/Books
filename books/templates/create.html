@@ -1,0 +1,19 @@
+<title>Create</title>
+{% block content %}
+    <div class="features">
+    <h1>Create</h1>
+    <a href="{% url 'home' %}">Home</a>
+       <h1>Вы можете создать тут заказ</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.name }}<br>
+            {{ form.author }}<br>
+            {{ form.comment }}<br>
+            {{ form.price }}<br>
+            {{ form.pub_date }}<br>
+            {{ form.date }}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Create</button>
+        </form>
+    </div>
+{% endblock %}
